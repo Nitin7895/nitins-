@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nitin Mishra — Freelance Developer & AI Automation Specialist</title>
+  <meta name="description" content="Nitin Mishra builds AI agents, automation systems, and web apps for real businesses. Based in India, open to remote and freelance roles.">
+  <meta property="og:title" content="Nitin Mishra — Freelance Developer & AI Specialist">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-name">Nitin Mishra</a>
+      <div class="nav-links">
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#stack" class="nav-link">Stack</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section id="hero">
+    <div class="container hero-layout">
+      <div class="hero-text">
+        <span class="hero-eyebrow animate-hero">Based in India &nbsp;·&nbsp; Freelance Developer</span>
+        <h1 class="hero-name animate-hero">
+          <span class="hero-first">Nitin</span>
+          <span class="hero-last">Mishra</span>
+        </h1>
+        <p class="hero-tagline animate-hero">
+          AI agents, automation systems,<br>
+          and web apps built for<br>
+          real businesses.
+        </p>
+        <div class="hero-ctas animate-hero">
+          <a href="#work" class="btn btn-primary">View my work</a>
+          <a href="#contact" class="btn btn-outline">Get in touch &thinsp;→</a>
+        </div>
+        <p class="hero-note animate-hero">Open to remote &amp; freelance roles globally</p>
+      </div>
+
+      <div class="hero-photo-col animate-hero">
+        <div class="hero-photo-frame">
+          <img src="images/nitin.jpg" alt="Nitin Mishra" class="hero-photo" id="hero-photo">
+          <div class="photo-shimmer"></div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator"><div class="scroll-track"></div></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       TOOLS TICKER
+  ═══════════════════════════════════════ -->
+  <section id="tools-ticker">
+    <p class="ticker-label">Tools &amp; platforms I build with</p>
+    <div class="ticker-outer">
+      <div class="ticker-track" id="ticker-track"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       STATS BAR
+  ═══════════════════════════════════════ -->
+  <section id="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item animate-on-scroll">
+          <span class="stat-num" data-target="11" data-suffix="+">11+</span>
+          <span class="stat-label">Projects Shipped Live</span>
+        </div>
+        <div class="stat-item animate-on-scroll" style="transition-delay:0.1s">
+          <span class="stat-num" data-target="30" data-suffix="K+">30K+</span>
+          <span class="stat-label">Impressions in 6 Weeks</span>
+        </div>
+        <div class="stat-item animate-on-scroll" style="transition-delay:0.2s">
+          <span class="stat-num">24/7+</span>
+          <span class="stat-label">AI Call Coverage</span>
+        </div>
+        <div class="stat-item animate-on-scroll" style="transition-delay:0.3s">
+          <span class="stat-num" data-target="5" data-suffix="+ Days">5+ Days</span>
+          <span class="stat-label">To Ship a Full Business Site</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       WHAT YOU GET
+  ═══════════════════════════════════════ -->
+  <section id="outcomes">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">Why Hire Me</span>
+        <h2 class="section-title">Here's what you actually get.</h2>
+      </div>
+      <div class="outcomes-grid" id="outcomes-grid"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SELECTED WORK
+  ═══════════════════════════════════════ -->
+  <section id="work">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">Selected Work</span>
+        <h2 class="section-title">Projects I ship.</h2>
+      </div>
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       STACK
+  ═══════════════════════════════════════ -->
+  <section id="stack">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">Tech Stack</span>
+        <h2 class="section-title">What I build with.</h2>
+      </div>
+      <div class="stack-rows" id="stack-rows"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       HOW I WORK
+  ═══════════════════════════════════════ -->
+  <section id="process">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">Working Style</span>
+        <h2 class="section-title">How I operate.</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-card reveal-up" style="transition-delay:0s">
+          <div class="process-num">01</div>
+          <h3 class="process-title">Ships to production.</h3>
+          <p class="process-note">Real users. Real load. Not a demo.</p>
+        </div>
+        <div class="process-card reveal-up" style="transition-delay:0.12s">
+          <div class="process-num">02</div>
+          <h3 class="process-title">Fast. Days, not months.</h3>
+          <p class="process-note">Speed is a feature, not a risk.</p>
+        </div>
+        <div class="process-card reveal-up" style="transition-delay:0.24s">
+          <div class="process-num">03</div>
+          <h3 class="process-title">Direct communication.</h3>
+          <p class="process-note">You always know where things stand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">Get in Touch</span>
+        <h2 class="section-title">Let's build something.</h2>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-left reveal-left">
+          <p class="contact-blurb">
+            Open to freelance projects, remote roles, and AI automation contracts.
+            If you have something worth building, let's talk.
+          </p>
+          <div class="contact-links" id="contact-links"></div>
+        </div>
+        <div class="contact-right reveal-right">
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+            <input type="hidden" name="subject" value="Portfolio Contact">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-name" class="form-label">Name</label>
+                <input id="f-name" type="text" name="name" class="form-input" placeholder="Your name" autocomplete="name" required>
+              </div>
+              <div class="form-group">
+                <label for="f-email" class="form-label">Email</label>
+                <input id="f-email" type="email" name="email" class="form-input" placeholder="you@company.com" autocomplete="off" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="f-msg" class="form-label">Message</label>
+              <textarea id="f-msg" name="message" class="form-input form-textarea"
+                        placeholder="Tell me what you're building…" rows="4" autocomplete="off" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="form-btn">
+              <span id="btn-label">Send message</span>
+            </button>
+          </form>
+          <div id="form-ok" class="form-success" style="display:none">
+            <div class="success-check">✓</div>
+            <p>Message received. I'll reply within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container footer-row">
+      <span class="footer-name">Nitin Mishra</span>
+      <span class="footer-mid">Built with care &nbsp;·&nbsp; India</span>
+      <span id="footer-year" class="footer-copy"></span>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       PROJECT DETAIL MODAL POPUP
+  ═══════════════════════════════════════ -->
+  <div id="project-modal" class="proj-modal-hidden" aria-hidden="true">
+    <div class="proj-modal-overlay" id="proj-modal-overlay"></div>
+    <div class="proj-modal-container">
+      <button id="proj-modal-close" aria-label="Close modal">✕</button>
+      <div class="proj-modal-content" id="proj-modal-content">
+        <!-- Dynamically rendered project details -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       AI CHATBOT WIDGET
+  ═══════════════════════════════════════ -->
+  <div id="ai-chat-widget">
+    <button id="chat-toggle-btn" aria-label="Open AI Assistant Chat">
+      <span class="chat-btn-icon">💬</span>
+      <span class="chat-btn-text">Ask AI Assistant</span>
+      <span class="chat-unread-dot"></span>
+    </button>
+
+    <div id="chat-modal" class="chat-modal-hidden">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">🤖</div>
+          <div>
+            <div class="chat-bot-title">Nitin's AI Assistant</div>
+            <div class="chat-bot-status"><span class="status-dot"></span> Online &amp; Ready to Help</div>
+          </div>
+        </div>
+        <button id="chat-close-btn" aria-label="Close Chat">✕</button>
+      </div>
+
+      <div class="chat-body" id="chat-messages">
+        <div class="chat-msg bot-msg">
+          <p>Hi there! I'm Nitin's AI Assistant 👋</p>
+          <p>How can I help you today? Select a quick option below or ask any question!</p>
+        </div>
+        <div class="chat-quick-options" id="chat-quick-options">
+          <button class="chat-opt-btn" data-query="cost">🚀 Project Cost &amp; Timeline</button>
+          <button class="chat-opt-btn" data-query="services">🤖 AI Workflows &amp; Services</button>
+          <button class="chat-opt-btn" data-query="contact">📞 Direct Contact Info</button>
+          <button class="chat-opt-btn" data-query="process">⚡ How Fast Can We Ship?</button>
+        </div>
+      </div>
+
+      <form id="chat-form" class="chat-footer">
+        <input type="text" id="chat-input" placeholder="Type a message or question..." autocomplete="off">
+        <button type="submit" id="chat-send-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
