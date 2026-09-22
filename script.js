@@ -203,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initForm();
   initChatbot();
   initProjectModal();
+  initTestimonials();
   document.getElementById('footer-year').textContent = `© ${new Date().getFullYear()}`;
 });
 
@@ -588,5 +589,53 @@ function openProjectModal(index) {
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 }
+
+/* ── Video Testimonials Handler ───────────────────────────── */
+function initTestimonials() {
+  const videoWraps = document.querySelectorAll('.video-frame-wrap');
+  if (!videoWraps.length) return;
+
+  // 1. Lazy load muted preview loops when scrolled into view
+  const previewObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const wrap = entry.target;
+        const previewVideo = wrap.querySelector('.video-preview-loop');
+        if (previewVideo && !previewVideo.src && previewVideo.dataset.src) {
+          previewVideo.src = previewVideo.dataset.src;
+          previewVideo.play().catch(() => {});
+        }
+        previewObserver.unobserve(wrap);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  videoWraps.forEach(wrap => previewObserver.observe(wrap));
+
+  // 2. Play full testimonial video with audio on user click
+  videoWraps.forEach(wrap => {
+    wrap.addEventListener('click', () => {
+      const fullSrc = wrap.dataset.fullSrc;
+      const poster  = wrap.dataset.poster;
+      if (!fullSrc) return;
+
+      // Replace preview video element with full video player
+      wrap.innerHTML = `
+        <video class="video-active-full" controls autoplay playsinline poster="${poster}">
+          <source src="${fullSrc}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      `;
+
+      const fullVideo = wrap.querySelector('.video-active-full');
+      if (fullVideo) {
+        fullVideo.muted = false;
+        fullVideo.volume = 1.0;
+        fullVideo.play().catch(() => {});
+      }
+    });
+  });
+}
+
 
 
