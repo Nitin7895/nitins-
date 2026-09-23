@@ -1371,4 +1371,355 @@ html { -webkit-text-size-adjust: 100%; }
   }
 }
 
+/* ============================================================
+   CASE STUDIES SECTION
+============================================================ */
+#case-studies {
+  padding: 100px 0;
+  scroll-margin-top: 84px;
+}
+
+.case-studies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.case-study-card {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s var(--ease), border-color 0.3s, box-shadow 0.35s;
+  cursor: pointer;
+}
+
+.case-study-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-h);
+  box-shadow: var(--shadow-md);
+}
+
+.cs-image-col {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  background: #0F172A;
+  overflow: hidden;
+}
+
+.cs-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s var(--ease);
+}
+
+.case-study-card:hover .cs-img {
+  transform: scale(1.04);
+}
+
+.cs-category-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+.cs-content-col {
+  padding: 32px 36px 32px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cs-outcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.cs-outcome-icon { font-size: 0.9rem; }
+.cs-outcome-text { font-size: 0.82rem; font-weight: 700; color: var(--amber); }
+
+.cs-title {
+  font-family: 'Outfit', var(--sans);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-h);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.cs-detail-row {
+  margin-bottom: 12px;
+}
+
+.cs-detail-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.cs-detail-val {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.cs-detail-desc {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.cs-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cs-stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cs-stack-tag {
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+.btn-cs-more {
+  padding: 8px 16px;
+  font-size: 0.82rem;
+}
+
+/* ============================================================
+   ACTIVE BUILDS SECTION
+============================================================ */
+#building-now {
+  padding: 80px 0 100px;
+  background: #F1F5F9;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.building-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.building-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s var(--ease), border-color 0.3s;
+}
+
+.building-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-h);
+}
+
+.b-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.b-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--amber);
+  background: rgba(217,119,6,0.08);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(217,119,6,0.2);
+}
+
+.b-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  animation: pulse 2s infinite;
+}
+
+.b-progress-val {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.b-title {
+  font-family: 'Outfit', var(--sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-h);
+  margin-bottom: 10px;
+}
+
+.b-desc {
+  font-size: 0.86rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.b-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.b-tag {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  color: #475569;
+}
+
+/* ============================================================
+   SINGLE CONTACT CTA CARD
+============================================================ */
+#contact {
+  padding: 100px 0;
+}
+
+.contact-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  padding: 60px 40px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.contact-title {
+  font-family: 'Outfit', var(--sans);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--text-h);
+  line-height: 1.2;
+  margin: 12px 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.contact-sub {
+  font-size: 1.05rem;
+  color: var(--text-body);
+  max-width: 580px;
+  margin: 0 auto 36px;
+  line-height: 1.65;
+}
+
+.contact-cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-whatsapp-lg {
+  background: #25D366;
+  color: #FFFFFF;
+  padding: 14px 32px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 14px;
+  transition: all 0.25s var(--ease);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-lg:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+}
+
+.btn-outline-lg {
+  background: #FFFFFF;
+  color: var(--text-h);
+  border: 1px solid var(--border);
+  padding: 14px 32px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 14px;
+  transition: all 0.25s var(--ease);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-outline-lg:hover {
+  background: #F8FAFC;
+  border-color: var(--border-h);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .case-study-card {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .cs-image-col {
+    height: 220px;
+  }
+  .cs-content-col {
+    padding: 24px 24px 28px;
+  }
+  .building-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-card {
+    padding: 40px 24px;
+  }
+}
+
 

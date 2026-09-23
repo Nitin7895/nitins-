@@ -15,116 +15,60 @@ const ME = {
 /* image: filename inside the images/ folder
    stat / statLabel: big amber number shown on card
    span "wide" = full row | "normal" = half row            */
-const PROJECTS = [
+const CASE_STUDIES = [
   {
-    type:      "Booking Platform",
-    name:      "Dental Booking Platform",
-    tagline:   "Appointment booking across multiple clinic locations with automatic confirmations to patients and doctors.",
-    image:     "images/proj_booking.jpg",
-    stat:      null, statLabel: null,
-    metric:    "Live in production",
-    stack:     ["Next.js", "Supabase", "Resend", "TypeScript"],
-    live:      true,  span: "wide"
+    title:    "Multi-Location Dental Booking Platform",
+    category: "Healthcare / Web App",
+    whoFor:   "Multi-clinic healthcare & dental group",
+    whatBuilt:"Full-stack appointment scheduling application with multi-location routing, doctor availability management, and automated patient SMS/email notifications.",
+    outcome:  "Shipped live in 5 days · Zero missed patient bookings",
+    image:    "images/proj_booking.jpg",
+    stack:    ["Next.js", "Supabase", "Resend", "TypeScript"],
+    live:     true
   },
   {
-    type:      "Web Development",
-    name:      "Business Site in 5 Days",
-    tagline:   "19 location pages, GA4 analytics and call tracking. Built and live in under a week.",
-    image:     "images/proj_website.jpg",
-    stat:      "30K+", statLabel: "impressions in the first 6 weeks",
-    metric:    "Now on an ongoing SEO retainer",
-    stack:     ["TanStack Start", "Vercel", "Supabase", "GA4"],
-    live:      true,  span: "normal"
+    title:    "24/7 Autonomous AI Voice Agent",
+    category: "Voice AI / Automation",
+    whoFor:   "Inbound care services provider",
+    whatBuilt:"Custom voice AI phone intake agent integrated with a live staff admin dashboard, automated lead tagging, and CRM sync.",
+    outcome:  "24/7 call coverage · 100% after-hours inquiry capture",
+    image:    "images/proj_voice.jpg",
+    stack:    ["Vapi", "n8n", "Supabase", "OpenAI"],
+    live:     true
   },
   {
-    type:      "AI SaaS",
-    name:      "AI SaaS for Field Service",
-    tagline:   "Gmail and WhatsApp inbox manager that drafts tone matched replies, auto generates invoices and handles lead follow up.",
-    image:     "images/proj_ai_saas.jpg",
-    stat:      null, statLabel: null,
-    metric:    "Tested live with a real user",
-    stack:     ["OpenAI", "Anthropic", "Stripe Connect", "Supabase"],
-    live:      true,  span: "normal"
+    title:    "WhatsApp Business & AI Support Pipeline",
+    category: "E-Commerce / AI Automation",
+    whoFor:   "High-volume e-commerce brand",
+    whatBuilt:"Automated WhatsApp order confirmation pipeline and embedded GPT-4 customer support agent trained on product docs.",
+    outcome:  "80% customer support tickets resolved automatically",
+    image:    "images/proj_whatsapp.jpg",
+    stack:    ["n8n", "WhatsApp API", "OpenAI", "Supabase"],
+    live:     true
+  }
+];
+
+const BUILDING_NOW = [
+  {
+    title:    "Multi-Tenant Client Portal",
+    status:   "In Active Build",
+    desc:     "White-label admin portal with role-based access control, custom client branding, and automated Stripe onboarding.",
+    stack:    ["Next.js", "Supabase", "Stripe Connect", "TypeScript"],
+    progress: "80%"
   },
   {
-    type:      "Voice AI",
-    name:      "AI Voice Agent",
-    tagline:   "Handles after hours inbound calls for a care services business with a full staff admin dashboard.",
-    image:     "images/proj_voice.jpg",
-    stat:      "24/7", statLabel: "call coverage, zero missed calls",
-    metric:    "Live and handling real calls",
-    stack:     ["Vapi", "n8n", "Supabase", "OpenAI"],
-    live:      true,  span: "wide"
+    title:    "Automated Social Content Pipeline",
+    status:   "Testing & Optimization",
+    desc:     "Content calendar to published post pipeline — generates captions, resizes visuals, and schedules across social channels.",
+    stack:    ["n8n", "OpenAI", "Airtable", "Buffer API"],
+    progress: "90%"
   },
   {
-    type:      "Automation",
-    name:      "WhatsApp Business Automation",
-    tagline:   "Automated order confirmations, delivery updates and support replies via WhatsApp Business API for an e-commerce brand.",
-    image:     "images/proj_whatsapp.jpg",
-    stat:      null, statLabel: null,
-    metric:    "Handles hundreds of messages daily",
-    stack:     ["n8n", "WhatsApp API", "Supabase", "Twilio"],
-    live:      true,  span: "normal"
-  },
-  {
-    type:      "AI Automation",
-    name:      "AI Customer Support Agent",
-    tagline:   "Embedded GPT-4 chat widget trained on product docs and FAQs, with automatic human handoff when confidence drops.",
-    image:     "images/proj_ai_support.jpg",
-    stat:      "80%", statLabel: "of tickets resolved without a human",
-    metric:    "Running live on a client site",
-    stack:     ["OpenAI", "Next.js", "Supabase", "Resend"],
-    live:      true,  span: "normal"
-  },
-  {
-    type:      "Data Pipeline",
-    name:      "E-commerce Analytics Pipeline",
-    tagline:   "Pulls Shopify sales, ad spend and inventory data into a unified dashboard updated in real time.",
-    image:     "images/proj_analytics.jpg",
-    stat:      null, statLabel: null,
-    metric:    "Replaced 3 separate reporting tools",
-    stack:     ["n8n", "Shopify API", "Supabase", "GA4"],
-    live:      true,  span: "wide"
-  },
-  {
-    type:      "Automation",
-    name:      "Social Content Pipeline",
-    tagline:   "Content calendar to published post pipeline — generates captions, resizes images and schedules across platforms.",
-    image:     "images/proj_social.jpg",
-    stat:      null, statLabel: null,
-    metric:    "10 hours of manual work saved per week",
-    stack:     ["n8n", "OpenAI", "Airtable", "Buffer API"],
-    live:      false, span: "normal"
-  },
-  {
-    type:      "SaaS",
-    name:      "Multi-tenant Client Portal",
-    tagline:   "White-label portal with role-based access, custom branding per client and automated onboarding flows.",
-    image:     "images/proj_saas_portal.jpg",
-    stat:      null, statLabel: null,
-    metric:    "4 clients live on the same codebase",
-    stack:     ["Next.js", "Supabase", "Stripe Connect", "TypeScript"],
-    live:      true,  span: "normal"
-  },
-  {
-    type:      "Automation",
-    name:      "Google Maps Lead Scraper",
-    tagline:   "Enter a zip code and category. Get clean business leads written to Google Sheets automatically.",
-    image:     "images/proj_leads.jpg",
-    stat:      null, statLabel: null,
-    metric:    "Used in real outbound sales",
-    stack:     ["n8n", "Google Sheets API"],
-    live:      false, span: "normal"
-  },
-  {
-    type:      "Automation",
-    name:      "SEO Content Planning Pipeline",
-    tagline:   "Turns a raw keyword list into a writer ready content plan. Solves the real SEO bottleneck.",
-    image:     "images/proj_seo.jpg",
-    stat:      null, statLabel: null,
-    metric:    "Eliminates manual keyword clustering",
-    stack:     ["n8n", "OpenAI", "Google Sheets"],
-    live:      false, span: "normal"
+    title:    "SEO Keyword Clustering & Content Planner",
+    status:   "Initial Beta Build",
+    desc:     "Turns raw keyword export lists into structured writer-ready content plans, eliminating manual keyword clustering.",
+    stack:    ["n8n", "OpenAI", "Google Sheets API"],
+    progress: "75%"
   }
 ];
 
@@ -137,52 +81,22 @@ const STACK = [
 
 /* color = brand hex to pass to simpleicons CDN (no #). null slug = dot fallback */
 const TOOLS = [
-  { name: "OpenAI",    slug: "openai",      color: "FFFFFF" },  // white (brand is black)
-  { name: "Claude",    slug: "anthropic",   color: "CC8B5E" },  // warm amber-brown
+  { name: "OpenAI",    slug: "openai",      color: "FFFFFF" },
+  { name: "Claude",    slug: "anthropic",   color: "CC8B5E" },
   { name: "Lovable",   slug: null,          color: null     },
-  { name: "n8n",       slug: "n8n",         color: "EA4B71" },  // official n8n pink
-  { name: "Airtable",  slug: "airtable",    color: "18BFFF" },  // official Airtable cyan
-  { name: "Make",      slug: "make",        color: "9B59D0" },  // Make purple (lightened)
-  { name: "Supabase",  slug: "supabase",    color: "3ECF8E" },  // official Supabase green
-  { name: "Vercel",    slug: "vercel",      color: "FFFFFF" },  // white (brand is black)
-  { name: "Next.js",   slug: "nextdotjs",   color: "FFFFFF" },  // white (brand is black)
+  { name: "n8n",       slug: "n8n",         color: "EA4B71" },
+  { name: "Airtable",  slug: "airtable",    color: "18BFFF" },
+  { name: "Make",      slug: "make",        color: "9B59D0" },
+  { name: "Supabase",  slug: "supabase",    color: "3ECF8E" },
+  { name: "Vercel",    slug: "vercel",      color: "FFFFFF" },
+  { name: "Next.js",   slug: "nextdotjs",   color: "FFFFFF" },
   { name: "Vapi",      slug: null,          color: null     },
-  { name: "Zapier",    slug: "zapier",      color: "FF4A00" },  // official Zapier orange
-  { name: "Notion",    slug: "notion",      color: "FFFFFF" },  // white (brand is black)
-  { name: "Stripe",    slug: "stripe",      color: "635BFF" },  // official Stripe indigo
-  { name: "WhatsApp",  slug: "whatsapp",    color: "25D366" },  // official WhatsApp green
-  { name: "Shopify",   slug: "shopify",     color: "96BF48" },  // official Shopify green
-  { name: "Twilio",    slug: "twilio",      color: "F22F46" },  // official Twilio red
-  { name: "Cursor",    slug: "cursor",      color: "FFFFFF" },
+  { name: "Zapier",    slug: "zapier",      color: "FF4A00" },
+  { name: "Stripe",    slug: "stripe",      color: "635BFF" },
+  { name: "WhatsApp",  slug: "whatsapp",    color: "25D366" },
+  { name: "Shopify",   slug: "shopify",     color: "96BF48" },
+  { name: "Twilio",    slug: "twilio",      color: "F22F46" },
   { name: "GitHub",    slug: "github",      color: "FFFFFF" },
-];
-
-const OUTCOMES = [
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
-    title: "A system that actually ships.",
-    desc:  "Production apps and automations go live in days, not months — and keep running without babysitting after handoff."
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
-    title: "More customers finding you.",
-    desc:  "SEO and local search work that shows up in real impressions and clicks — not a report full of vanity metrics."
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>`,
-    title: "Your busywork, automated away.",
-    desc:  "AI workflows and voice agents handle bookings, follow-ups, replies and lead gen so you don't have to think about them."
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
-    title: "One person. No layers.",
-    desc:  "You talk directly to the person building it. Fast turnarounds, honest timelines, zero agency runaround."
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`,
-    title: "Built to grow with you.",
-    desc:  "Systems designed to extend as your business needs change — not rigid one-time builds you'll outgrow in six months."
-  }
 ];
 
 /* ============================================================
@@ -192,14 +106,10 @@ const OUTCOMES = [
 document.addEventListener('DOMContentLoaded', () => {
   applyMeta();
   renderTicker();
-  renderProjects();
-  renderOutcomes();
-  renderStack();
-  renderContactLinks();
+  renderCaseStudies();
+  renderBuildingNow();
   initNav();
   initScrollAnimations();
-  initCounters();
-  initParallax();
   initForm();
   initChatbot();
   initProjectModal();
@@ -208,60 +118,75 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ── Meta ───────────────────────────────────────── */
-function applyMeta() {
-  if (!ME.available) {
-    const p = document.getElementById('avail-pill');
-    if (p) p.style.display = 'none';
-  }
-}
+function applyMeta() {}
 
-/* ── Render: Projects ───────────────────────────── */
-function renderProjects() {
-  const el = document.getElementById('projects-grid');
+/* ── Render: Case Studies ───────────────────────────── */
+function renderCaseStudies() {
+  const el = document.getElementById('case-studies-list');
   if (!el) return;
-  el.innerHTML = PROJECTS.map((p, i) => `
-    <article class="project-card reveal-up"
-             data-span="${p.span}"
-             data-proj-index="${i}"
-             style="transition-delay:${(i % 2) * 0.1}s">
-      <div class="card-click-badge">View Overview ↗</div>
-      <!-- Project image -->
-      <div class="card-img-wrap">
-        <img src="${p.image}" alt="${p.name}" class="card-img" loading="lazy">
-        <div class="card-img-overlay"></div>
+  el.innerHTML = CASE_STUDIES.map((cs, i) => `
+    <article class="case-study-card reveal-up" data-cs-index="${i}" style="transition-delay:${i * 0.12}s">
+      <div class="cs-image-col">
+        <img src="${cs.image}" alt="${cs.title}" class="cs-img" loading="lazy">
+        <span class="cs-category-badge">${cs.category}</span>
       </div>
-      <!-- Card content -->
-      <div class="card-body">
-        <div class="card-badges">
-          <span class="badge-type">${p.type}</span>
-          ${p.live ? `<span class="badge-live"><span class="badge-live-dot"></span>Live</span>` : ''}
+      <div class="cs-content-col">
+        <div class="cs-outcome-badge">
+          <span class="cs-outcome-icon">🏆</span>
+          <span class="cs-outcome-text">${cs.outcome}</span>
         </div>
-        ${p.stat ? `
-          <div class="card-stat-block">
-            <span class="card-stat">${p.stat}</span>
-            <span class="card-stat-label">${p.statLabel}</span>
+        <h3 class="cs-title">${cs.title}</h3>
+        
+        <div class="cs-detail-row">
+          <span class="cs-detail-label">Who For:</span>
+          <span class="cs-detail-val">${cs.whoFor}</span>
+        </div>
+        
+        <div class="cs-detail-row">
+          <span class="cs-detail-label">What Built:</span>
+          <p class="cs-detail-desc">${cs.whatBuilt}</p>
+        </div>
+
+        <div class="cs-footer">
+          <div class="cs-stack-list">
+            ${cs.stack.map(s => `<span class="cs-stack-tag">${s}</span>`).join('')}
           </div>
-        ` : ''}
-        <h3 class="card-title">${p.name}</h3>
-        <p class="card-tagline">${p.tagline}</p>
-        <div class="card-stack">
-          ${p.stack.map(s => `<span class="card-tag">${s}</span>`).join('')}
-        </div>
-        <div class="card-metric">
-          <span class="card-metric-icon">◆</span>
-          <span>${p.metric}</span>
+          <button class="btn btn-outline btn-cs-more" data-cs-index="${i}">
+            Case details ↗
+          </button>
         </div>
       </div>
     </article>
   `).join('');
 
-  // Add click handlers for project modal
-  el.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const idx = parseInt(card.dataset.projIndex, 10);
-      if (!isNaN(idx)) openProjectModal(idx);
+  el.querySelectorAll('.case-study-card, .btn-cs-more').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const card = e.target.closest('[data-cs-index]');
+      if (card) {
+        const idx = parseInt(card.dataset.csIndex, 10);
+        if (!isNaN(idx)) openProjectModal(idx);
+      }
     });
   });
+}
+
+/* ── Render: What I'm Building Now ───────────────────────────── */
+function renderBuildingNow() {
+  const el = document.getElementById('building-grid');
+  if (!el) return;
+  el.innerHTML = BUILDING_NOW.map((b, i) => `
+    <div class="building-card reveal-up" style="transition-delay:${i * 0.1}s">
+      <div class="b-header">
+        <span class="b-status-pill"><span class="b-pulse-dot"></span>${b.status}</span>
+        <span class="b-progress-val">${b.progress} complete</span>
+      </div>
+      <h3 class="b-title">${b.title}</h3>
+      <p class="b-desc">${b.desc}</p>
+      <div class="b-stack">
+        ${b.stack.map(s => `<span class="b-tag">${s}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
 }
 
 /* ── Render: Tools Ticker ────────────────────────────────────────────── */
@@ -535,7 +460,7 @@ function initProjectModal() {
 }
 
 function openProjectModal(index) {
-  const p = PROJECTS[index];
+  const p = CASE_STUDIES[index];
   if (!p) return;
 
   const modal   = document.getElementById('project-modal');
@@ -549,20 +474,23 @@ function openProjectModal(index) {
   ];
 
   content.innerHTML = `
-    <img src="${p.image}" alt="${p.name}" class="modal-hero-img">
+    <img src="${p.image}" alt="${p.title}" class="modal-hero-img">
     <div class="modal-body">
       <div class="modal-badges">
-        <span class="badge-type">${p.type}</span>
+        <span class="badge-type">${p.category}</span>
         ${p.live ? `<span class="badge-live"><span class="badge-live-dot"></span>Live in Production</span>` : ''}
       </div>
-      <h2 class="modal-title">${p.name}</h2>
-      <p class="modal-tagline">${p.tagline}</p>
+      <h2 class="modal-title">${p.title}</h2>
+      <p class="modal-tagline"><strong>Outcome:</strong> ${p.outcome}</p>
 
       <div class="modal-section">
-        <h4 class="modal-sec-title">Project Overview &amp; Impact</h4>
-        <p class="modal-sec-text">
-          Built to solve real operational bottlenecks. This system streamlines daily manual work into an intuitive, reliable pipeline — ensuring speed, precision, and business scalability.
-        </p>
+        <h4 class="modal-sec-title">Who it was built for</h4>
+        <p class="modal-sec-text">${p.whoFor}</p>
+      </div>
+
+      <div class="modal-section">
+        <h4 class="modal-sec-title">What was built</h4>
+        <p class="modal-sec-text">${p.whatBuilt}</p>
         <ul class="modal-highlights">
           ${highlights.map(h => `<li>${h}</li>`).join('')}
         </ul>
@@ -577,7 +505,7 @@ function openProjectModal(index) {
 
       <div class="modal-cta">
         <span class="modal-cta-text">Need a similar solution for your business?</span>
-        <a href="https://wa.me/919258706148?text=Hi%20Nitin,%20I'm%20interested%20in%20a%20project%20similar%20to%20${encodeURIComponent(p.name)}" 
+        <a href="https://wa.me/919258706148?text=Hi%20Nitin,%20I'm%20interested%20in%20a%20project%20similar%20to%20${encodeURIComponent(p.title)}" 
            target="_blank" class="btn btn-primary" style="padding:10px 20px; font-size:0.85rem;">
           Discuss on WhatsApp &thinsp;→
         </a>
