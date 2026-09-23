@@ -17,57 +17,50 @@ const ME = {
    span "wide" = full row | "normal" = half row            */
 const CASE_STUDIES = [
   {
-    title:    "Multi-Location Dental Booking Platform",
+    title:    "Dental Clinic Booking System",
     category: "Healthcare / Web App",
-    whoFor:   "Multi-clinic healthcare & dental group",
-    whatBuilt:"Full-stack appointment scheduling application with multi-location routing, doctor availability management, and automated patient SMS/email notifications.",
-    outcome:  "Shipped live in 5 days · Zero missed patient bookings",
+    whoFor:   "Dental clinic (private practice)",
+    whatBuilt:"Multi-clinic AI booking system with appointment management and follow-up automation.",
+    outcome:  "4 → 19 bookings/month (no extra ad spend) · 12 → 67 Google reviews in 5 months",
     image:    "images/proj_booking.jpg",
-    stack:    ["Next.js", "Supabase", "Resend", "TypeScript"],
+    stack:    ["Next.js", "Supabase", "n8n automation", "WhatsApp API"],
     live:     true
   },
   {
-    title:    "24/7 Autonomous AI Voice Agent",
+    title:    "AI Voice Agent for Service Business",
     category: "Voice AI / Automation",
-    whoFor:   "Inbound care services provider",
-    whatBuilt:"Custom voice AI phone intake agent integrated with a live staff admin dashboard, automated lead tagging, and CRM sync.",
-    outcome:  "24/7 call coverage · 100% after-hours inquiry capture",
+    whoFor:   "Solar installation company",
+    whatBuilt:"24/7 AI voice agent that handles incoming calls, qualifies leads, and books appointments.",
+    outcome:  "Answers 100% of after-hours calls · Zero missed inquiries · Client inquiries never drop",
     image:    "images/proj_voice.jpg",
-    stack:    ["Vapi", "n8n", "Supabase", "OpenAI"],
+    stack:    ["OpenAI voice", "n8n workflows", "Twilio"],
     live:     true
   },
   {
-    title:    "WhatsApp Business & AI Support Pipeline",
-    category: "E-Commerce / AI Automation",
-    whoFor:   "High-volume e-commerce brand",
-    whatBuilt:"Automated WhatsApp order confirmation pipeline and embedded GPT-4 customer support agent trained on product docs.",
-    outcome:  "80% customer support tickets resolved automatically",
-    image:    "images/proj_whatsapp.jpg",
-    stack:    ["n8n", "WhatsApp API", "OpenAI", "Supabase"],
+    title:    "SEO Site & Content Pipeline",
+    category: "Web & Content Automation",
+    whoFor:   "UK-based client",
+    whatBuilt:"Full website build + SEO content planning workflow (n8n + AI agents).",
+    outcome:  "30K impressions in 6 weeks · Ranked for 15+ high-intent keywords",
+    image:    "images/proj_seo.jpg",
+    stack:    ["Next.js", "Vercel", "n8n", "Claude"],
     live:     true
   }
 ];
 
 const BUILDING_NOW = [
   {
-    title:    "Multi-Tenant Client Portal",
+    title:    "Multi-Tenant SaaS for Plumbers",
     status:   "In Active Build",
-    desc:     "White-label admin portal with role-based access control, custom client branding, and automated Stripe onboarding.",
-    stack:    ["Next.js", "Supabase", "Stripe Connect", "TypeScript"],
-    progress: "80%"
+    desc:     "White-label platform featuring WhatsApp AI assistant, automated client invoicing, and automated lead follow-up for field services.",
+    stack:    ["Next.js", "Supabase", "WhatsApp API", "Stripe"],
+    progress: "85%"
   },
   {
-    title:    "Automated Social Content Pipeline",
-    status:   "Testing & Optimization",
-    desc:     "Content calendar to published post pipeline — generates captions, resizes visuals, and schedules across social channels.",
-    stack:    ["n8n", "OpenAI", "Airtable", "Buffer API"],
-    progress: "90%"
-  },
-  {
-    title:    "SEO Keyword Clustering & Content Planner",
-    status:   "Initial Beta Build",
-    desc:     "Turns raw keyword export lists into structured writer-ready content plans, eliminating manual keyword clustering.",
-    stack:    ["n8n", "OpenAI", "Google Sheets API"],
+    title:    "AI Model Evaluation Workflows",
+    status:   "Testing & Benchmarking",
+    desc:     "Automated benchmark framework evaluating output accuracy, cost, and response latency across Claude 3.5, GPT-4o, and Gemini 1.5 Pro.",
+    stack:    ["n8n", "Anthropic", "OpenAI", "Google Gemini"],
     progress: "75%"
   }
 ];

@@ -1236,6 +1236,29 @@ html { -webkit-text-size-adjust: 100%; }
   box-shadow: var(--shadow-md);
 }
 
+.testimonial-context-header {
+  padding: 16px 20px;
+  background: #F8FAFC;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.t-who {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+}
+
+.t-problem {
+  font-size: 0.82rem;
+  color: var(--text-body);
+  line-height: 1.4;
+}
+
 .video-frame-wrap {
   position: relative;
   width: 100%;
@@ -1319,6 +1342,21 @@ html { -webkit-text-size-adjust: 100%; }
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+}
+
+.t-result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.22);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--amber);
+  margin-bottom: 16px;
+  width: fit-content;
 }
 
 .testimonial-quote {
