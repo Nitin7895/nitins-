@@ -17,51 +17,60 @@ const ME = {
    span "wide" = full row | "normal" = half row            */
 const CASE_STUDIES = [
   {
-    title:    "Dental Clinic Booking System",
+    headline: "Dental Clinic Booking System — 4x More Appointments",
+    title:    "Multi-Clinic Booking System",
     category: "Healthcare / Web App",
-    whoFor:   "Dental clinic (private practice)",
-    whatBuilt:"Multi-clinic AI booking system with appointment management and follow-up automation.",
-    outcome:  "4 → 19 bookings/month (no extra ad spend) · 12 → 67 Google reviews in 5 months",
+    whoFor:   "Dental clinic (private practice, India)",
+    whatBuilt:"Built a production booking system with AI appointment reminders, patient follow-ups, and multi-location management.",
+    outcome:  "4 bookings/month → 19 bookings/month (no extra ad spend) · Google reviews grew from 12 → 67 in 5 months",
+    statBadge:"4x More Appointments",
+    timeline: "5 days from concept to live",
     image:    "images/proj_booking.jpg",
     stack:    ["Next.js", "Supabase", "n8n automation", "WhatsApp API"],
     live:     true
   },
   {
-    title:    "AI Voice Agent for Service Business",
+    headline: "AI Voice Agent — 100% After-Hours Call Handling",
+    title:    "24/7 AI Voice Agent",
     category: "Voice AI / Automation",
-    whoFor:   "Solar installation company",
-    whatBuilt:"24/7 AI voice agent that handles incoming calls, qualifies leads, and books appointments.",
-    outcome:  "Answers 100% of after-hours calls · Zero missed inquiries · Client inquiries never drop",
+    whoFor:   "Solar installation company (service business)",
+    whatBuilt:"Built and deployed a voice AI agent that answers calls 24/7, qualifies leads, and books appointments automatically.",
+    outcome:  "Handles 100% of after-hours calls · Zero missed inquiries · Client calls never drop",
+    statBadge:"100% Call Coverage",
+    timeline: "2 weeks deployment, live in production",
     image:    "images/proj_voice.jpg",
-    stack:    ["OpenAI voice", "n8n workflows", "Twilio"],
+    stack:    ["OpenAI voice API", "n8n workflows", "Twilio integration"],
     live:     true
   },
   {
-    title:    "SEO Site & Content Pipeline",
+    headline: "SEO Website + AI Content Pipeline — 30K Impressions in 6 Weeks",
+    title:    "SEO Site + Content Automation",
     category: "Web & Content Automation",
-    whoFor:   "UK-based client",
-    whatBuilt:"Full website build + SEO content planning workflow (n8n + AI agents).",
-    outcome:  "30K impressions in 6 weeks · Ranked for 15+ high-intent keywords",
+    whoFor:   "UK-based service business",
+    whatBuilt:"Built full website from scratch + n8n workflow that auto-generates SEO content using AI agents for categorization and clustering.",
+    outcome:  "30K impressions in 6 weeks · Ranked for 15+ keywords · Content pipeline runs automatically every month",
+    statBadge:"30K Impressions in 6 Wks",
+    timeline: "5-day initial build, ongoing automation",
     image:    "images/proj_seo.jpg",
-    stack:    ["Next.js", "Vercel", "n8n", "Claude"],
+    stack:    ["Next.js", "Vercel", "n8n", "Claude AI agents", "Airtable"],
     live:     true
   }
 ];
 
 const BUILDING_NOW = [
   {
-    title:    "Multi-Tenant SaaS for Plumbers",
-    status:   "In Active Build",
-    desc:     "White-label platform featuring WhatsApp AI assistant, automated client invoicing, and automated lead follow-up for field services.",
-    stack:    ["Next.js", "Supabase", "WhatsApp API", "Stripe"],
-    progress: "85%"
+    title:    "Multi-Tenant Plumber SaaS",
+    status:   "Active development, beta with 2 clients",
+    desc:     "Full SaaS platform for plumbers — WhatsApp AI lead capture, email automation, invoicing, and appointment follow-ups.",
+    stack:    ["Next.js", "Supabase", "n8n", "Claude API"],
+    progress: "Beta Live"
   },
   {
-    title:    "AI Model Evaluation Workflows",
-    status:   "Testing & Benchmarking",
-    desc:     "Automated benchmark framework evaluating output accuracy, cost, and response latency across Claude 3.5, GPT-4o, and Gemini 1.5 Pro.",
-    stack:    ["n8n", "Anthropic", "OpenAI", "Google Gemini"],
-    progress: "75%"
+    title:    "AI Model Evaluator Workflow",
+    status:   "In use, framework complete",
+    desc:     "n8n workflow that tests the same prompt against Claude, GPT-4, and Gemini in parallel, scores them on clarity/accuracy, and generates comparison reports for internal testing & client evaluations.",
+    stack:    ["n8n", "Claude API", "OpenAI API", "Gemini API"],
+    progress: "Framework Complete"
   }
 ];
 
@@ -124,14 +133,18 @@ function renderCaseStudies() {
         <span class="cs-category-badge">${cs.category}</span>
       </div>
       <div class="cs-content-col">
-        <div class="cs-outcome-badge">
-          <span class="cs-outcome-icon">🏆</span>
-          <span class="cs-outcome-text">${cs.outcome}</span>
+        <div class="cs-header-badge-row">
+          <div class="cs-outcome-badge">
+            <span class="cs-outcome-icon">🏆</span>
+            <span class="cs-outcome-text">${cs.outcome}</span>
+          </div>
+          <span class="cs-timeline-tag">⚡ ${cs.timeline}</span>
         </div>
-        <h3 class="cs-title">${cs.title}</h3>
+
+        <h3 class="cs-title">${cs.headline}</h3>
         
         <div class="cs-detail-row">
-          <span class="cs-detail-label">Who For:</span>
+          <span class="cs-detail-label">Who:</span>
           <span class="cs-detail-val">${cs.whoFor}</span>
         </div>
         
@@ -471,9 +484,10 @@ function openProjectModal(index) {
     <div class="modal-body">
       <div class="modal-badges">
         <span class="badge-type">${p.category}</span>
+        <span class="badge-type" style="background:rgba(217,119,6,0.08); color:var(--amber); border-color:rgba(217,119,6,0.2);">⚡ ${p.timeline}</span>
         ${p.live ? `<span class="badge-live"><span class="badge-live-dot"></span>Live in Production</span>` : ''}
       </div>
-      <h2 class="modal-title">${p.title}</h2>
+      <h2 class="modal-title">${p.headline || p.title}</h2>
       <p class="modal-tagline"><strong>Outcome:</strong> ${p.outcome}</p>
 
       <div class="modal-section">

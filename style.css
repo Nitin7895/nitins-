@@ -1237,26 +1237,54 @@ html { -webkit-text-size-adjust: 100%; }
 }
 
 .testimonial-context-header {
-  padding: 16px 20px;
+  padding: 18px 22px;
   background: #F8FAFC;
   border-bottom: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+}
+
+.t-context-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .t-who {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--amber);
 }
 
-.t-problem {
-  font-size: 0.82rem;
+.t-badge-result {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.t-context-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.t-detail-line {
+  font-size: 0.8rem;
   color: var(--text-body);
-  line-height: 1.4;
+  line-height: 1.45;
+}
+
+.t-detail-line strong {
+  color: var(--text-h);
 }
 
 .video-frame-wrap {
@@ -1483,12 +1511,38 @@ html { -webkit-text-size-adjust: 100%; }
   justify-content: space-between;
 }
 
+.cs-header-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.cs-header-badge-row .cs-outcome-badge,
+.cs-header-badge-row .cs-timeline-tag {
+  margin-bottom: 0;
+}
+
+.cs-timeline-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--amber);
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
 .cs-outcome-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(217, 119, 6, 0.08);
-  border: 1px solid rgba(217, 119, 6, 0.25);
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.22);
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 16px;
