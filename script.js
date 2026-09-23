@@ -26,6 +26,9 @@ const CASE_STUDIES = [
     statBadge:"4x More Appointments",
     timeline: "5 days from concept to live",
     image:    "images/proj_booking.jpg",
+    demoVideo: "images/booking_demo.mp4",
+    demoPreview: "images/booking_demo_preview.mp4",
+    demoPoster: "images/proj_booking.jpg",
     stack:    ["Next.js", "Supabase", "n8n automation", "WhatsApp API"],
     live:     true
   },
@@ -61,14 +64,14 @@ const BUILDING_NOW = [
   {
     title:    "Multi-Tenant Plumber SaaS",
     status:   "Active development, beta with 2 clients",
-    desc:     "Full SaaS platform for plumbers — WhatsApp AI lead capture, email automation, invoicing, and appointment follow-ups.",
+    desc:     "Full SaaS platform for plumbers — WhatsApp AI lead capture, email automation, invoicing, and appointment follow-ups. Currently in beta with 2 clients, ready for broader launch.",
     stack:    ["Next.js", "Supabase", "n8n", "Claude API"],
     progress: "Beta Live"
   },
   {
     title:    "AI Model Evaluator Workflow",
     status:   "In use, framework complete",
-    desc:     "n8n workflow that tests the same prompt against Claude, GPT-4, and Gemini in parallel, scores them on clarity/accuracy, and generates comparison reports for internal testing & client evaluations.",
+    desc:     "n8n workflow that tests the same prompt against Claude, GPT-4, and Gemini in parallel, scores them on clarity/accuracy, and generates comparison reports. Used for internal testing and client evaluations.",
     stack:    ["n8n", "Claude API", "OpenAI API", "Gemini API"],
     progress: "Framework Complete"
   }
@@ -129,8 +132,20 @@ function renderCaseStudies() {
   el.innerHTML = CASE_STUDIES.map((cs, i) => `
     <article class="case-study-card reveal-up" data-cs-index="${i}" style="transition-delay:${i * 0.12}s">
       <div class="cs-image-col">
-        <img src="${cs.image}" alt="${cs.title}" class="cs-img" loading="lazy">
-        <span class="cs-category-badge">${cs.category}</span>
+        ${cs.demoVideo ? `
+          <div class="cs-video-frame-wrap video-frame-wrap" data-full-src="${cs.demoVideo}" data-poster="${cs.demoPoster}">
+            <video class="video-preview-loop" loop muted playsinline poster="${cs.demoPoster}" preload="none" data-src="${cs.demoPreview || cs.demoVideo}"></video>
+            <button class="video-play-btn" aria-label="Play Booking System Demo Video">
+              <span class="play-btn-pulse"></span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <span class="cs-demo-badge">🎬 30s Live Demo</span>
+            <span class="video-duration-badge">0:30</span>
+          </div>
+        ` : `
+          <img src="${cs.image}" alt="${cs.title}" class="cs-img" loading="lazy">
+          <span class="cs-category-badge">${cs.category}</span>
+        `}
       </div>
       <div class="cs-content-col">
         <div class="cs-header-badge-row">
