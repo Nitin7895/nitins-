@@ -29,6 +29,7 @@ const CASE_STUDIES = [
     demoVideo: "images/booking_demo.mp4",
     demoPreview: "images/booking_demo_preview.mp4",
     demoPoster: "images/proj_booking.jpg",
+    demoBadge:  "🔊 35s Booking Demo (Sound)",
     stack:    ["Next.js", "Supabase", "n8n automation", "WhatsApp API"],
     live:     true
   },
@@ -42,6 +43,10 @@ const CASE_STUDIES = [
     statBadge:"100% Call Coverage",
     timeline: "2 weeks deployment, live in production",
     image:    "images/proj_voice.jpg",
+    demoVideo: "images/voice_demo.mp4",
+    demoPreview: "images/client_2_preview.mp4",
+    demoPoster: "images/proj_voice.jpg",
+    demoBadge:  "🔊 35s Voice AI Demo (Sound)",
     stack:    ["OpenAI voice API", "n8n workflows", "Twilio integration"],
     live:     true
   },
@@ -135,12 +140,12 @@ function renderCaseStudies() {
         ${cs.demoVideo ? `
           <div class="cs-video-frame-wrap video-frame-wrap" data-full-src="${cs.demoVideo}" data-poster="${cs.demoPoster}">
             <video class="video-preview-loop" loop muted playsinline poster="${cs.demoPoster}" preload="none" data-src="${cs.demoPreview || cs.demoVideo}"></video>
-            <button class="video-play-btn" aria-label="Play Booking System Demo Video">
+            <button class="video-play-btn" aria-label="Play Project Demo Video">
               <span class="play-btn-pulse"></span>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </button>
-            <span class="cs-demo-badge">🎬 30s Live Demo</span>
-            <span class="video-duration-badge">0:30</span>
+            <span class="cs-demo-badge">${cs.demoBadge || '🎬 35s Live Demo'}</span>
+            <span class="video-duration-badge">0:35</span>
           </div>
         ` : `
           <img src="${cs.image}" alt="${cs.title}" class="cs-img" loading="lazy">
@@ -562,14 +567,22 @@ function initTestimonials() {
 
   videoWraps.forEach(wrap => previewObserver.observe(wrap));
 
-  // 2. Play full testimonial video with audio on user click
+  // 2. Play full video with audio on user click
   videoWraps.forEach(wrap => {
-    wrap.addEventListener('click', () => {
+    wrap.addEventListener('click', (e) => {
+      // Prevent click loops if already clicking controls on active video
+      if (e.target.tagName === 'VIDEO') return;
+
       const fullSrc = wrap.dataset.fullSrc;
       const poster  = wrap.dataset.poster;
       if (!fullSrc) return;
 
-      // Replace preview video element with full video player
+      // Pause all other active videos on the page
+      document.querySelectorAll('video').forEach(v => {
+        try { v.pause(); } catch(err) {}
+      });
+
+      // Replace preview loop element with interactive full video player with audio
       wrap.innerHTML = `
         <video class="video-active-full" controls autoplay playsinline poster="${poster}">
           <source src="${fullSrc}" type="video/mp4">
@@ -581,7 +594,14 @@ function initTestimonials() {
       if (fullVideo) {
         fullVideo.muted = false;
         fullVideo.volume = 1.0;
-        fullVideo.play().catch(() => {});
+        const playPromise = fullVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // Fallback for strict browser autoplay restriction
+            fullVideo.muted = false;
+            fullVideo.play();
+          });
+        }
       }
     });
   });
