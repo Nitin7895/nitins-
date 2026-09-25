@@ -65,6 +65,45 @@ const CASE_STUDIES = [
   }
 ];
 
+const WORKFLOWS = [
+  {
+    title:       "Google Maps Lead Scraper",
+    category:    "n8n / Data Extraction",
+    whatItDoes:  "n8n workflow that scrapes business listings from Google Maps, handles concurrent requests, deduplicates by place_id, manages rate limits vs quota errors, and exports clean structured data.",
+    image:       "images/wf_gmaps.png",
+    keyMetric:   "Processes 500+ businesses per run · Concurrency caps · Zero duplicate data",
+    learning:    "Checkpointing and state management matter more than raw speed.",
+    stack:       ["n8n", "Google Maps API", "PostgreSQL", "Rate Limit Queue"]
+  },
+  {
+    title:       "Cold Email Follow-up (State in Gmail)",
+    category:    "Gmail / Email Automation",
+    whatItDoes:  "Gmail automation that encodes campaign metadata in hidden HTML spans, detects when replies come in, switches from broadcast to reply-in-thread sends, and tracks state across multiple sends.",
+    image:       "images/wf_cold_email.png",
+    keyMetric:   "Handles reply detection · Self-references for ongoing sequences · Idempotent by design",
+    learning:    "Hidden spans survive Gmail but not corporate gateways; need opaque IDs and idempotency logs.",
+    stack:       ["n8n", "Gmail API", "HTML Metadata", "Webhooks"]
+  },
+  {
+    title:       "SEO Keyword Clustering + Content Pipeline",
+    category:    "AI Pipeline / Content Automation",
+    whatItDoes:  "Two parallel n8n paths — one categorizes keywords via AI agent, one finds semantic clusters and generates hub + spoke article ideas, outputting structured data to Airtable.",
+    image:       "images/wf_seo_cluster.png",
+    keyMetric:   "Generates 50+ keyword groups · Auto-creates content calendar · Runs on monthly schedule",
+    learning:    "AI clustering isn't deterministic; embeddings + clustering > LLM-only for stability; schema validation at API level prevents JSON breaks.",
+    stack:       ["n8n", "Claude API", "Embeddings", "Airtable API"]
+  },
+  {
+    title:       "AI Model Evaluator",
+    category:    "LLM Benchmarking / Automation",
+    whatItDoes:  "Tests same prompt across Claude, GPT-4, and Gemini in parallel, scores each on clarity/accuracy, and generates comparison reports for internal testing and client evaluations.",
+    image:       "images/wf_model_eval.png",
+    keyMetric:   "Runs 100+ test prompts · Automated scorecards · Pinpoints winning model per use case",
+    learning:    "Structured output matters; parse-and-retry beats prompt wording; parallel testing reveals real differences.",
+    stack:       ["n8n", "OpenAI API", "Anthropic API", "Google Gemini API"]
+  }
+];
+
 const BUILDING_NOW = [
   {
     title:    "Multi-Tenant Plumber SaaS",
@@ -117,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
   applyMeta();
   renderTicker();
   renderCaseStudies();
+  renderWorkflows();
   renderBuildingNow();
   initNav();
   initScrollAnimations();
@@ -194,6 +234,66 @@ function renderCaseStudies() {
       }
     });
   });
+}
+
+/* ── Render: Production AI Workflows ───────────────────────────── */
+function renderWorkflows() {
+  const el = document.getElementById('workflows-list');
+  if (!el) return;
+  el.innerHTML = WORKFLOWS.map((wf, i) => `
+    <article class="workflow-card reveal-up" style="transition-delay:${i * 0.1}s">
+      <div class="wf-image-col" onclick="openImageModal('${wf.image}', '${wf.title}')">
+        <img src="${wf.image}" alt="${wf.title}" class="wf-img" loading="lazy">
+        <div class="wf-img-overlay">
+          <span>🔍 Expand Workflow Canvas</span>
+        </div>
+      </div>
+      <div class="wf-content-col">
+        <div>
+          <div class="wf-header-row">
+            <span class="wf-category-tag">${wf.category}</span>
+            <span class="cs-timeline-tag">⚡ Production System</span>
+          </div>
+          <h3 class="wf-title">${wf.title}</h3>
+          <p class="wf-desc">${wf.whatItDoes}</p>
+          
+          <div class="wf-metric-badge">
+            <span>📊</span>
+            <span>${wf.keyMetric}</span>
+          </div>
+
+          <div class="wf-learning-box">
+            <div class="wf-learning-header">
+              <span>💡</span>
+              <span class="wf-learning-title">What I Learned (Production Insight)</span>
+            </div>
+            <p class="wf-learning-text">${wf.learning}</p>
+          </div>
+        </div>
+
+        <div class="wf-stack">
+          ${wf.stack.map(s => `<span class="wf-stack-tag">${s}</span>`).join('')}
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+function openImageModal(src, title) {
+  const modal   = document.getElementById('project-modal');
+  const content = document.getElementById('proj-modal-content');
+  if (!modal || !content) return;
+
+  content.innerHTML = `
+    <div style="padding: 10px;">
+      <h3 style="margin-bottom: 12px; font-size: 1.2rem; font-weight: 700; color: var(--text-h);">${title} — Workflow Canvas</h3>
+      <img src="${src}" alt="${title}" style="width:100%; height:auto; border-radius:12px; border:1px solid var(--border);">
+    </div>
+  `;
+
+  modal.classList.remove('proj-modal-hidden');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
 }
 
 /* ── Render: What I'm Building Now ───────────────────────────── */
